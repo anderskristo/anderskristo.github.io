@@ -48,18 +48,43 @@ a {
   text-decoration: none;
 }
 
-#polygon {    
+#heptagon {
+  background: #F22613;
 	margin: 0 auto;
   width: 200px;
   height: 200px;
   -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
   clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: colours;
+  -webkit-animation-timing-function: ease;
+}
 
+#heptagon:hover {
+  -webkit-clip-path: polygon(73% 0, 66% 23%, 69% 37%, 89% 100%, 47% 57%, 1% 100%, 34% 26%);
+  clip-path: polygon(73% 0, 66% 23%, 69% 37%, 89% 100%, 47% 57%, 1% 100%, 34% 26%);
+}
+
+
+@-webkit-keyframes colours {
+    0% {background: #F22613;}
+   10% {background: #F64747;}
+   20% {background: #BF55EC;}
+   30% {background: #8E44AD;}
+   40% {background: #4183D7;}
+   50% {background: #19B5FE;}
+   60% {background: #4ECDC4;}
+   70% {background: #2ABB9B;}
+   80% {background: #F5D76E;}
+   90% {background: #F2784B;}
+  100% {background: #F22613;}
 }
 
 @media  (max-width: 600px) {
