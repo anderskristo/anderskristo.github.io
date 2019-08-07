@@ -14,6 +14,7 @@ body {
   width: 600px;
   margin: 20px auto 0;
   text-align: center;
+  position: relative;
 }
 
 h1 {
@@ -85,6 +86,15 @@ a {
    80% {background: #F5D76E;}
    90% {background: #F2784B;}
   100% {background: #F22613;}
+}
+
+#particle-canvas {
+  width: 100%;
+  height: 60vh;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 @media  (max-width: 600px) {
