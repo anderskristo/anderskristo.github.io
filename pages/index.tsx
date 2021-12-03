@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Heading>Hey, I'm Anders.</Heading>
+        <Heading>Hey, I&apos;m Anders.</Heading>
         <Links>
           {links.map((link: Link, index: number) => {
             return <LinkItem link={link} key={index} />;
