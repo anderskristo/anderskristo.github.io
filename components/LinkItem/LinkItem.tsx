@@ -18,7 +18,7 @@ const LinkItem = (props: Props) => {
 
 export default LinkItem;
 
-const ListItem = styled.li<Props>`
+const ListItem = styled.li`
   display: block;
   margin-bottom: 10px;
   &:last-child { margin-bottom: 0; }
