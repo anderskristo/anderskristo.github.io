@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>anderskristo, this is me.</title>
         <meta name="description" content="anderskristo, this is me." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
