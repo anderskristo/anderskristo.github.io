@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     font-family: 'Fira Code';
     margin: 0;
-    padding: 15px;
     width: 100%;
     height: 100%;
   }

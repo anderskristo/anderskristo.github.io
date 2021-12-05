@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import Head from 'next/head';
 import Link from 'next/link';
-import { LinkItem, Heading } from '../components/';
+import { MainLayout } from '../layout';
+import { LinkItem } from '../components/';
 import { LinkType } from '../utils/types';
 
 const Home: NextPage = () => {
@@ -30,25 +30,16 @@ const Home: NextPage = () => {
   ];
   
   return (
-    <div>
-      <Head>
-        <title>anderskristo, this is me.</title>
-        <meta name="description" content="anderskristo, this is me." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Heading link="/">Hey, I&apos;m Anders.</Heading>
-        <Links>
-          {links.map((link: LinkType, index: number) => {
-            return <LinkItem link={link} key={index} />;
-          })}
-        </Links>
-        <SecretLink>
-          <Link href="/music"> </Link>
-        </SecretLink>
-      </main>
-    </div>
+    <MainLayout title="anderskristo, this is me." description="anderskristo, this is me.">
+      <Links>
+        {links.map((link: LinkType, index: number) => {
+          return <LinkItem link={link} key={index} />;
+        })}
+      </Links>
+      <SecretLink>
+        <Link href="/music"> </Link>
+      </SecretLink>
+    </MainLayout>
   )
 };
 
