@@ -8,6 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const tracks = items.slice(0, 10).map((track: any) => ({
       artist: track.artists.map((_artist: any) => _artist.name).join(', '),
+      artistUrl: track.artists[0].external_urls.spotify,
       songUrl: track.external_urls.spotify,
       title: track.name,
     }));

@@ -6,14 +6,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const response = await getTopArtists();
     const { items } = await response.json();
 
+    console.log(items)
+
     const artists = items.slice(0, 10).map((artist: any) => ({
       artistUrl: artist.external_urls.spotify,
       title: artist.name,
-      popularity: artist.popularity,
+      genres: artist.genres.map((genre: any) => genre).join(', '),
       images: artist.images,
     }));
-  
-    return res.json({ artists });
+
+    return res.status(200).json({ artists });
   } catch (error: any) {
     throw new Error(error);
   }

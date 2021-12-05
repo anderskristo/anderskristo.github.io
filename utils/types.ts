@@ -3,3 +3,23 @@ export interface LinkType {
   url: string;
   target: string;
 };
+
+export interface Image {
+  height: number;
+  width: number;
+  url: string;
+}
+
+export interface Artist {
+  title: string;
+  artistUrl: string;
+  genres: string[];
+  images: Image[];
+}
+
+export interface Track {
+  artist: string;
+  songUrl: string;
+  title: string;
+  artistUrl: string;
+}
