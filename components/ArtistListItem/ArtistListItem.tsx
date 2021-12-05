@@ -8,7 +8,7 @@ interface Props {
 
 const ArtistListItem = (props: Props) => {
   const { artist } = props;
-  console.log('ASKDASKDKAd', artist)
+  
   return (
     <Wrapper>
       <div><Link href={artist.artistUrl}>{artist.title}</Link></div>
