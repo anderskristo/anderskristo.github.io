@@ -1,7 +1,7 @@
-import type { NextApiResponse } from 'next';
+import type { NextApiResponse, NextApiRequest } from 'next';
 import { getTopTracks } from '../../lib/spotify';
 
-async function handler(res: NextApiResponse) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const response = await getTopTracks();
     const { items } = await response.json();
@@ -11,13 +11,9 @@ async function handler(res: NextApiResponse) {
       songUrl: track.external_urls.spotify,
       title: track.name,
     }));
-
-    console.log('aa', tracks)
   
     return res.json({ tracks });
   } catch (error: any) {
     throw new Error(error);
   }
-};
-
-export default handler;
+}
