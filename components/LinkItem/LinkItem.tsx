@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Link } from '../../utils/types';
+import { LinkType } from '../../utils/types';
 
 interface Props {
-  link: Link;
+  link: LinkType;
 }
 
 const LinkItem = (props: Props) => {

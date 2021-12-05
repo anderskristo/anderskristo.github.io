@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Fira Code';
     margin: 0;
     padding: 15px;
+    width: 100%;
+    height: 100%;
   }
   body {
     background-color: #0e0e0e;
@@ -25,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
     background: #d93025;
     color: white;
   }
+  main { position: relative; }
 `;
 
 export default GlobalStyle;

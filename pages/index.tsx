@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import styled from 'styled-components';
-import { LinkItem } from '../components/';
-import { Link } from '../utils/types';
+import Head from 'next/head';
+import Link from 'next/link';
+import { LinkItem, Heading } from '../components/';
+import { LinkType } from '../utils/types';
 
 const Home: NextPage = () => {
-  const links:Link[] = [
+  const links:LinkType[] = [
     {
       text: 'Github',
       url: 'https://github.com/anderskristo',
@@ -37,12 +38,15 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Heading>Hey, I&apos;m Anders.</Heading>
+        <Heading link="/">Hey, I&apos;m Anders.</Heading>
         <Links>
-          {links.map((link: Link, index: number) => {
+          {links.map((link: LinkType, index: number) => {
             return <LinkItem link={link} key={index} />;
           })}
         </Links>
+        <SecretLink>
+          <Link href="/music"> </Link>
+        </SecretLink>
       </main>
     </div>
   )
@@ -50,12 +54,32 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const Heading = styled.h1`
-  font-size: 42px;
-  margin: 0;
-`;
-
 const Links = styled.ul`
   padding: 0;
   margin: 50px 0 0;
+`;
+
+const SecretLink = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  background: ${(props) => props.theme.colors.primary};
+  border-radius: 50%;
+  transition: all 350ms ease;
+  @media (min-width: 768px) {
+    right: 160px;
+    top: 20%;
+  }
+  &:hover {
+    background: ${(props) => props.theme.colors.primary_darker};
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  a {
+    display: block;
+    height: inherit;
+    width: inherit;
+  }
 `;
