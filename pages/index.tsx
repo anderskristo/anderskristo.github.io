@@ -8,6 +8,11 @@ import { LinkType } from '../utils/types';
 const Home: NextPage = () => {
   const links:LinkType[] = [
     {
+      text: 'Music',
+      url: '/music',
+      target: '_self',
+    },
+    {
       text: 'Github',
       url: 'https://github.com/anderskristo',
       target: '_blank',
@@ -36,9 +41,6 @@ const Home: NextPage = () => {
           return <LinkItem link={link} key={index} />;
         })}
       </Links>
-      <SecretLink>
-        <Link href="/music"> </Link>
-      </SecretLink>
     </MainLayout>
   )
 };
@@ -48,29 +50,4 @@ export default Home;
 const Links = styled.ul`
   padding: 0;
   margin: 50px 0 0;
-`;
-
-const SecretLink = styled.div`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 50px;
-  height: 50px;
-  background: ${(props) => props.theme.colors.primary};
-  border-radius: 50%;
-  transition: all 350ms ease;
-  @media (min-width: 768px) {
-    right: 160px;
-    top: 20%;
-  }
-  &:hover {
-    background: ${(props) => props.theme.colors.primary_darker};
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  a {
-    display: block;
-    height: inherit;
-    width: inherit;
-  }
 `;
