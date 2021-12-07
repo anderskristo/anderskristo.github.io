@@ -25,3 +25,12 @@ export async function getTopTracks() {
     throw new Error(error);
   }
 };
+
+export async function getNowPlaying() {
+  try {
+    const response = await instance.get('now-playing');
+    return response.data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};

@@ -29,5 +29,5 @@ const Wrapper = styled.div``;
 
 const Main = styled.main`
   width: 100%;
-  padding: 0 15px;
+  padding: 0 15px 100px;
 `;  

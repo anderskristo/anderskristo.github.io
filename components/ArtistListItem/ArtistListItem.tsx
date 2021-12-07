@@ -23,8 +23,8 @@ const Wrapper = styled.div`
   margin-bottom: 15px;
   > div {
     a {
-      text-decoration: none; color: white;
-
+      text-decoration: none;
+      color: white;
       &:hover {
         color: ${(props) => props.theme.colors.primary};
       }

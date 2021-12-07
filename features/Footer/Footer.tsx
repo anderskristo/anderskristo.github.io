@@ -14,14 +14,12 @@ export default Footer;
 
 const Wrapper = styled.footer`
   color: white;
-  position: fixed;
-  bottom: 25px;
   width: 100%;
+  padding: 100px 15px 25px;
 `;
 
 const Copyright = styled.div`
   width: 100%;
   margin-top: 50px;
-  text-align: center;
   padding-top: 25px;
 `;

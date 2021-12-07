@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (song.currently_playing_type === 'episode') {
       return res.status(200).json({ isPlaying: true, type: 'episode' });
     }
-    
+
     const isPlaying = song.is_playing;
     const title = song.item.name;
     const artist = song.item.artists.map((_artist: any) => _artist.name).join(', ');

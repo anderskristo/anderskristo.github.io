@@ -1,22 +1,22 @@
 import type { NextPage, GetStaticProps  } from 'next';
 import styled from 'styled-components';
-import { getTopArtists, getTopTracks } from '../utils/api';
-import { Artist, Track } from '../utils/types';
+import { getTopArtists, getTopTracks, getNowPlaying } from '../utils/api';
+import { Artist, Track, Playing } from '../utils/types';
 import { MainLayout } from '../layout';
-import { ArtistListItem, TrackListItem} from '../components';
+import { ArtistListItem, TrackListItem, NowPlaying} from '../components';
 
 interface Props {
   artists: Artist[];
   tracks: Track[];
+  playing: Playing;
 };
 
 export default function MusicPage(props: Props) {
-  const { artists, tracks } = props;
-
-  console.log('tracks', tracks);
-
+  const { artists, tracks, playing } = props;
+  
   return (
     <MainLayout title="anderskristo, this is my music." description="anderskristo, this is my music.">
+      <NowPlaying song={playing} />
       <ListsWrapper>
         <ListWrapper>
           <Heading>Top Artists</Heading>
@@ -31,16 +31,21 @@ export default function MusicPage(props: Props) {
           })}
         </ListWrapper>
       </ListsWrapper>
+      <InfoText>Data provided by <a href="https://spotify.com" target="_blank">Spotify</a></InfoText>
     </MainLayout>
   )
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const artists = await getTopArtists().catch((error) => {
+  const artists = await getTopArtists().catch((error: any) => {
     console.error(error);
   });
 
-  const tracks = await getTopTracks().catch((error) => {
+  const tracks = await getTopTracks().catch((error: any) => {
+    console.error(error);
+  });
+
+  const playing = await getNowPlaying().catch((error: any) => {
     console.error(error);
   });
 
@@ -48,6 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       artists: artists || null,
       tracks: tracks || null,
+      playing: playing || null,
     },
     revalidate: 10,
   };
@@ -71,6 +77,14 @@ const ListWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
+
 const Heading = styled.h3`
   border-bottom: 1px solid white;
+`;
+
+const InfoText = styled.div`
+  margin-top: 20px;
+  font-size: 12px;
+  font-style: italic;
+  a { color: inherit; }
 `;
