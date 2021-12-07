@@ -13,7 +13,7 @@ interface Props {
 
 export default function MusicPage(props: Props) {
   const { artists, tracks, playing } = props;
-  
+
   return (
     <MainLayout title="anderskristo, this is my music." description="anderskristo, this is my music.">
       <NowPlaying song={playing} />
@@ -31,7 +31,7 @@ export default function MusicPage(props: Props) {
           })}
         </ListWrapper>
       </ListsWrapper>
-      <InfoText>Data provided by <a href="https://spotify.com" target="_blank">Spotify</a></InfoText>
+      <InfoText>Data provided by <a href="https://spotify.com" target="_blank" rel="noreferrer">Spotify</a></InfoText>
     </MainLayout>
   )
 };
