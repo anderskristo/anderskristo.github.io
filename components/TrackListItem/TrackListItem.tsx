@@ -11,7 +11,7 @@ const TrackListItem = (props: Props) => {
   return (
     <Wrapper>
       <div><Link href={track.songUrl}>{track.title}</Link></div>
-        <div><Link href={track.artistUrl}>{track.artist}</Link></div>
+      <div><Link href={track.artistUrl}>{track.artist}</Link></div>
     </Wrapper>
   );
 };

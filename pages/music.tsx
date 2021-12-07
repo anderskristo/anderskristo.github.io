@@ -13,7 +13,6 @@ interface Props {
 export default function MusicPage(props: Props) {
   const { artists, tracks } = props;
 
-
   return (
     <MainLayout title="anderskristo, this is my music." description="anderskristo, this is my music.">
       <ListsWrapper>
@@ -23,12 +22,14 @@ export default function MusicPage(props: Props) {
             return <ArtistListItem artist={artist} key={index} />;
           })}
         </ListWrapper>
+        {/*
         <ListWrapper>
           <Heading>Top Tracks</Heading>
           {tracks.map((track: Track, index: number) => {
             return <TrackListItem track={track} key={index} />;
           })}
         </ListWrapper>
+        */}
       </ListsWrapper>
     </MainLayout>
   )
