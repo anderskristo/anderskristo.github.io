@@ -34,3 +34,12 @@ export async function getNowPlaying() {
     throw new Error(error);
   }
 };
+
+export async function getLyrics(artist: string, song: string) {
+  try {
+    const response = await instance.get(`genius/get-song?artist=${artist}&song=${song}`);
+    return response.data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};

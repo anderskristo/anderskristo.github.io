@@ -17,13 +17,15 @@ const NowPlaying = (props: Props) => {
   return (
     <Wrapper>
       <Heading>Now Playing:</Heading>
-      <Image
-        loader={imageLoader}
-        src={song.albumImageUrl}
-        alt={song.album}
-        width={50}
-        height={50}
-      />
+      {song &&
+        <Image
+          loader={imageLoader}
+          src={song.albumImageUrl}
+          alt={song.album}
+          width={50}
+          height={50}
+        />
+      }
       <SongInformation>
         <Link href={song.songUrl}>{song.title}</Link>
         <Artist>{song.artist}</Artist>

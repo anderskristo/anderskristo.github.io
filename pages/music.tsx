@@ -16,19 +16,25 @@ export default function MusicPage(props: Props) {
 
   return (
     <MainLayout title="anderskristo, this is my music." description="anderskristo, this is my music.">
-      <NowPlaying song={playing} />
+      {playing &&
+        <NowPlaying song={playing} />
+      }
       <ListsWrapper>
         <ListWrapper>
           <Heading>Top Artists</Heading>
-          {artists.map((artist: Artist, index: number) => {
-            return <ArtistListItem artist={artist} key={index} />;
-          })}
+          {artists &&
+            artists.map((artist: Artist, index: number) => {
+              return <ArtistListItem artist={artist} key={index} />;
+            })
+          }
         </ListWrapper>
         <ListWrapper>
           <Heading>Top Tracks</Heading>
-          {tracks.map((track: Track, index: number) => {
-            return <TrackListItem track={track} key={index} />;
-          })}
+          {tracks &&
+            tracks.map((track: Track, index: number) => {
+              return <TrackListItem track={track} key={index} />;
+            })
+          }
         </ListWrapper>
       </ListsWrapper>
       <InfoText>Data provided by <a href="https://spotify.com" target="_blank" rel="noreferrer">Spotify</a></InfoText>
